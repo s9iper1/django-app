@@ -23,9 +23,10 @@ from products.serializers import ProductSerializer
 @api_view(["POST"])
 def api_home(request, *args, **kwargs):
     serializer = ProductSerializer(data=request.data)
-    if serializer.is_valid():
-        instance = serializer.save()
-        print(instance)
-    return Response(serializer.data)
+    if serializer.is_valid(raise_exception=True):
+        # instance = serializer.save()
+        print(serializer.data)
+        return Response(serializer.data)
+    return Response({"invalid": "not good data"}, status=400)
     #     json_data_string = json.dumps(data)
     # return HttpResponse(json_data_string, headers={"content_type": "application/json"})
