@@ -24,8 +24,8 @@ from products.serializers import ProductSerializer
 def api_home(request, *args, **kwargs):
     serializer = ProductSerializer(data=request.data)
     if serializer.is_valid():
-        print(serializer.data)
-        data = serializer.data
-    return Response(data)
+        instance = serializer.save()
+        print(instance)
+    return Response(serializer.data)
     #     json_data_string = json.dumps(data)
     # return HttpResponse(json_data_string, headers={"content_type": "application/json"})
