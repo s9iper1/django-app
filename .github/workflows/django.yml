@@ -28,3 +28,10 @@ jobs:
     - name: Run Tests
       run: |
         python backend/manage.py test
+        python pyclient/create.py
+        python pyclient/details.py
+        python pyclient/list.py
+        python pyclient/not_found.py
+
+
+
