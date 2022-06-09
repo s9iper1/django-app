@@ -1,12 +1,13 @@
 import requests
 import constants
 
-product_id = input("what is the product id you want to delete?\n")
-try:
-    product_id = int(product_id)
-except:
-    product_id = None
-    print("product id is not valid")
+# product_id = input("what is the product id you want to delete?\n")
+# try:
+#     product_id = int(product_id)
+# except:
+#     product_id = None
+#     print("product id is not valid")
+product_id = 11000
 
 end_point = constants.SERVER_IP + f"/api/products/{product_id}/delete/"
 

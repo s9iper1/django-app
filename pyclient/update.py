@@ -1,7 +1,7 @@
 import requests
 import constants
 
-end_point = constants.SERVER_IP + "/api/products/2/update/"
+end_point = constants.SERVER_IP + "/api/products/11000/update/"
 
 data = {
     "title": "This is another test",
