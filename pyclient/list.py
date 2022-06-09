@@ -1,6 +1,7 @@
 import requests
+import constants
 
-end_point = "http://localhost:3000/api/products/"
+end_point = constants.SERVER_IP + "/api/products/"
 
 data = {
     "title": "Head's and shoulder",
