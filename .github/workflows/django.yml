@@ -27,9 +27,7 @@ jobs:
         pip install -r requirements.txt
     - name: Run Tests
       run: |
-        python pyclient/create.py
-        python pyclient/update.py
-        python pyclient/delete.py
+        python pyclient/test.py
 
 
 
