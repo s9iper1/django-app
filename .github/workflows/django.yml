@@ -27,7 +27,6 @@ jobs:
         pip install -r requirements.txt
     - name: Run Tests
       run: |
-        python backend/manage.py runserver 3000
         python pyclient/create.py
 
 
