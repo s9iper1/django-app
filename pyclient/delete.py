@@ -1,8 +1,6 @@
 import requests
 import constants
 
-# endpoint = "https://httpbin.org/status/200/"
-# end_point = "https://httpbin.org/anything"
 product_id = input("what is the product id you want to delete?\n")
 try:
     product_id = int(product_id)

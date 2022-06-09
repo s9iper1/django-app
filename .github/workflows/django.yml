@@ -30,8 +30,9 @@ jobs:
         python pyclient/create.py
         python pyclient/details.py
         python pyclient/list.py
-        python pyclient/basic.py
         python pyclient/not_found.py
+        python pyclient/update.py
+        python pyclient/delete.py
 
 
 
