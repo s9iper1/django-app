@@ -1,15 +1,19 @@
-from rest_framework import generics
+from rest_framework import generics, permissions, authentication
 
 from .models import Product
 from .serializers import ProductSerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
+from .permissions import IsStaffEditorPermissions
 
 
 class ProductListCreateAPIView(generics.ListCreateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    authentication_classes = [authentication.SessionAuthentication]
+    permission_classes = [IsStaffEditorPermissions]
+
 
     def perform_create(self, serializer):
         # serializer.save(user=self.request.user)
@@ -26,6 +30,8 @@ product_list_create_view = ProductListCreateAPIView.as_view()
 class ProductDetailAPIView(generics.RetrieveAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    permission_classes = [permissions.DjangoModelPermissions]
+
     # lookup field = 'pk'
 
 
@@ -35,6 +41,8 @@ product_detail_view = ProductDetailAPIView.as_view()
 class ProductUpdateAPIView(generics.UpdateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    permission_classes = [permissions.DjangoModelPermissions]
+
     lookup_field = 'pk'
 
     def perform_update(self, serializer):
@@ -50,6 +58,7 @@ product_update_view = ProductUpdateAPIView.as_view()
 class ProductDeleteAPIView(generics.DestroyAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    permission_classes = [permissions.DjangoModelPermissions]
     lookup_field = 'pk'
 
     def perform_destroy(self, instance):
